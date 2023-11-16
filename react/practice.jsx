@@ -33,8 +33,11 @@ while(false) {
     ReactDOM.render(JSX, document.getElementById("challenge-node"));
 }
 
-const JSX = (
-  <div>
-    <h1>Add a class to this div</h1>
-  </div>
-);
+while(false) {
+  const JSX = (
+    <div>
+      <h1>Add a class to this div</h1>
+    </div>
+  );
+}
+
