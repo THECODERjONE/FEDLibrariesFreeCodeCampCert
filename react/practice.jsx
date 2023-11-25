@@ -127,32 +127,32 @@ const TypesOfFruit = () => {
   );
 };
 
-const Fruits = () => {
-  return (
-    <div>
-      { /* Change code below this line */ }
-      <TypesOfFruit />
-      { /* Change code above this line */ }
-    </div>
-  );
-};
+// const Fruits = () => {
+//   return (
+//     <div>
+//       { /* Change code below this line */ }
+//       <TypesOfFruit />
+//       { /* Change code above this line */ }
+//     </div>
+//   );
+// };
 
-class TypesOfFood extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+// class TypesOfFood extends React.Component {
+//   constructor(props) {
+//     super(props);
+//   }
 
-  render() {
-    return (
-      <div>
-        <h1>Types of Food:</h1>
-        { /* Change code below this line */ }
-        <Fruits />
-        { /* Change code above this line */ }
-      </div>
-    );
-  }
-}
+//   render() {
+//     return (
+//       <div>
+//         <h1>Types of Food:</h1>
+//         { /* Change code below this line */ }
+//         <Fruits />
+//         { /* Change code above this line */ }
+//       </div>
+//     );
+//   }
+// }
 /* Use React to Render Nested Components */
 
 /* Compose React Components */
@@ -165,7 +165,8 @@ class Fruits extends React.Component {
       <div>
         <h2>Fruits:</h2>
         { /* Change code below this line */ }
-
+        <NonCitrus />
+        <Citrus />
         { /* Change code above this line */ }
       </div>
     );
@@ -181,7 +182,7 @@ class TypesOfFood extends React.Component {
       <div>
         <h1>Types of Food:</h1>
         { /* Change code below this line */ }
-
+        <Fruits />
         { /* Change code above this line */ }
         <Vegetables />
       </div>
@@ -189,3 +190,69 @@ class TypesOfFood extends React.Component {
   }
 };
 /* Compose React Components */
+
+/* Render a Class Component to the DOM */
+class TypesOfFood extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+      <div>
+        <h1>Types of Food:</h1>
+        {/* Change code below this line */}
+        <Fruits />
+        <Vegetables />
+        {/* Change code above this line */}
+      </div>
+    );
+  }
+};
+// Change code below this line
+ReactDOM.render(<TypesOfFood />, document.getElementById('challenge-node'))
+/* Render a Class Component to the DOM */
+
+/* Write a React Component from Scratch */
+class MyComponent extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+      <div>
+        <h1>My First React Component!</h1>
+      </div>
+    );
+  };
+}
+
+ReactDOM.render(<MyComponent />, document.getElementById("challenge-node"));
+/* Write a React Component from Scratch */
+
+/* Pass Props to a Stateless Functional Component */
+const CurrentDate = (props) => {
+  return (
+    <div>
+      { /* Change code below this line */ }
+      <p>The current date is: </p>
+      { /* Change code above this line */ }
+    </div>
+  );
+};
+
+class Calendar extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+      <div>
+        <h3>What date is it?</h3>
+        { /* Change code below this line */ }
+        <CurrentDate />
+        { /* Change code above this line */ }
+      </div>
+    );
+  }
+};
+/* Pass Props to a Stateless Functional Component */
