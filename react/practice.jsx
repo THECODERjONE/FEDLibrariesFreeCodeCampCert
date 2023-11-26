@@ -60,13 +60,15 @@ while (false) {
 }
 
 /* Create a Stateless Functional Component */
-const MyComponent = function() {
-  // Change code below this line
-  return    <div>                   {/* <--- cant change lines right after a return */}
-    Some text here.
-  </div>
-  // Change code above this line
-};
+while (false) {
+  const MyComponent = function() {
+    // Change code below this line
+    return    <div>                   {/* <--- cant change lines right after a return */}
+      Some text here.
+    </div>
+    // Change code above this line
+  };
+}
 /* Create a Stateless Functional Component */
 
 while (false) {
@@ -234,7 +236,7 @@ const CurrentDate = (props) => {
   return (
     <div>
       { /* Change code below this line */ }
-      <p>The current date is: </p>
+      <p>The current date is: {props.date}</p>
       { /* Change code above this line */ }
     </div>
   );
@@ -249,10 +251,176 @@ class Calendar extends React.Component {
       <div>
         <h3>What date is it?</h3>
         { /* Change code below this line */ }
-        <CurrentDate />
+        <CurrentDate date = {Date()} />
         { /* Change code above this line */ }
       </div>
     );
   }
 };
 /* Pass Props to a Stateless Functional Component */
+
+/* Pass an Array as Props */
+const List = (props) => {
+  { /* Change code below this line */ }
+  return <p>{props.tasks.join(", ")}</p>
+  { /* Change code above this line */ }
+};
+
+class ToDo extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+      <div>
+        <h1>To Do Lists</h1>
+        <h2>Today</h2>
+        { /* Change code below this line */ }
+        <List tasks = {["walk dog", "exercise", "have a shower", "drink a coffee", "brush teeth", "go to work"]}/>
+        <h2>Tomorrow</h2>
+        <List tasks = {["walk dog", "exercise", "have a shower", "drink a tea", "brush teeth", "go to work"]}/>
+        { /* Change code above this line */ }
+      </div>
+    );
+  }
+};
+/* Pass an Array as Props */
+
+/* Use Default Props */
+while (false) {
+  const ShoppingCart = (props) => {
+    return (
+      <div>
+        <h1>Shopping Cart Component</h1>
+      </div>
+    )
+  };
+  // Change code below this line
+  ShoppingCart.defaultProps = { items: 0 }
+}
+/* Use Default Props */
+
+/* Override Default Props */
+const Items = (props) => {
+  return <h1>Current Quantity of Items in Cart: {props.quantity}</h1>
+}
+
+Items.defaultProps = {
+  quantity: 0
+}
+
+class ShoppingCart extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    { /* Change code below this line */ }
+    return <Items quantity = {10}/>
+    { /* Change code above this line */ }
+  }
+};
+/* Override Default Props */
+
+/* Use PropTypes to Define the Props You Expect */
+const Items = (props) => {
+  return <h1>Current Quantity of Items in Cart: {props.quantity}</h1>
+};
+
+// Change code below this line
+Items.propTypes = { quantity: PropTypes.number.isRequired }
+// Change code above this line
+
+Items.defaultProps = {
+  quantity: 0
+};
+
+class ShoppingCart extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return <Items />
+  }
+};
+/* Use PropTypes to Define the Props You Expect */
+
+/* Access Props Using this.props */
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+
+  }
+  render() {
+    return (
+        <div>
+            { /* Change code below this line */ }
+            <Welcome name="Genericname"/>
+            { /* Change code above this line */ }
+        </div>
+    );
+  }
+};
+
+class Welcome extends React.Component {
+  constructor(props) {
+    super(props);
+
+  }
+  render() {
+    return (
+        <div>
+          { /* Change code below this line */ }
+          <p>Hello, <strong>{this.props.name}</strong>!</p>
+          { /* Change code above this line */ }
+        </div>
+    );
+  }
+};
+/* Access Props Using this.props */
+
+/* Review Using Props with Stateless Functional Components */
+class CampSite extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+      <div>
+        <Camper/>
+      </div>
+    );
+  }
+};
+// Change code below this line
+const Camper = props => <p>{props.name}</p>;
+
+Camper.defaultProps = {
+  name: "CamperBot"
+};
+
+Camper.propTypes = {
+  name: PropTypes.string.isRequired
+};
+/* Review Using Props with Stateless Functional Components */
+
+/* Create a Stateful Component */
+class StatefulComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    // Only change code below this line
+    this.state = {
+      firstName : "THECODERjONE"
+    }
+    // Only change code above this line
+  }
+  render() {
+    return (
+      <div>
+        <h1>{this.state.firstName}</h1>
+      </div>
+    );
+  }
+};
+/* Create a Stateful Component */
+
+
