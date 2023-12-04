@@ -832,10 +832,11 @@ class MyComponent extends React.Component {
   }
   // Change code below this line
   componentDidMount() {
-
+    document.addEventListener("keydown", this.handleKeyPress)
   }
-  componentWillUnmount() {
 
+  componentWillUnmount() {
+    document.removeEventListener("keydown", this.handleKeyPress)
   }
   // Change code above this line
   handleEnter() {
@@ -857,3 +858,69 @@ class MyComponent extends React.Component {
   }
 };
 /* Add Event Listeners */
+
+/* Optimize Re-Renders with shouldComponentUpdate */
+class OnlyEvens extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  shouldComponentUpdate(nextProps, nextState) {
+    console.log('Should I update?');
+    // Change code below this line
+    return ((nextProps.value%2 === 0) && (nextProps !== nextState))
+    // Change code above this line
+  }
+  componentDidUpdate() {
+    console.log('Component re-rendered.');
+  }
+  render() {
+    return <h1>{this.props.value}</h1>;
+  }
+}
+
+class Controller extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      value: 0
+    };
+    this.addValue = this.addValue.bind(this);
+  }
+  addValue() {
+    this.setState(state => ({
+      value: state.value + 1
+    }));
+  }
+  render() {
+    return (
+      <div>
+        <button onClick={this.addValue}>Add</button>
+        <OnlyEvens value={this.state.value} />
+      </div>
+    );
+  }
+}
+/* Optimize Re-Renders with shouldComponentUpdate */
+
+/* Introducing Inline Styles */
+class Colorful extends React.Component {
+  render() {
+    return (
+      <div style={{color: "red", fontSize: "72px"}}>Big Red</div>
+    );
+  }
+};
+/* Introducing Inline Styles */
+
+/* Add Inline Styles in React */
+// Change code above this line
+class Colorful extends React.Component {
+  render() {
+    // Change code below this line
+    return (
+      <div style={{color: "yellow", fontSize: 24}}>Style Me!</div>
+    );
+    // Change code above this line
+  }
+};
+/* Add Inline Styles in React */
