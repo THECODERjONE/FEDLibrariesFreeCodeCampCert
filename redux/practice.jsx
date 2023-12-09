@@ -87,13 +87,25 @@ while (false) {
 /* Handle an Action in the Store */
 
 /* Use a Switch Statement to Handle Multiple Actions */
-const defaultState = {
+while (false) {
+  const defaultState = {
     authenticated: false
   };
   
   const authReducer = (state = defaultState, action) => {
     // Change code below this line
-  
+    switch (action.type) {
+      case "LOGIN":
+        return {
+          authenticated: true
+        };  
+      case "LOGOUT":
+        return {
+          authenticated: false
+        };  
+      default:
+        return defaultState;
+    }
     // Change code above this line
   };
   
@@ -110,4 +122,79 @@ const defaultState = {
       type: 'LOGOUT'
     }
   };
+}
 /* Use a Switch Statement to Handle Multiple Actions */
+
+/* Use const for Action Types */
+while (false) {
+  const defaultState = {
+    authenticated: false
+  };
+  
+  const LOGIN = "LOGIN";
+  const LOGOUT = "LOGOUT";
+  
+  const authReducer = (state = defaultState, action) => {
+  
+    switch (action.type) {
+      case LOGIN: 
+        return {
+          authenticated: true
+        }
+      case LOGOUT: 
+        return {
+          authenticated: false
+        }
+  
+      default:
+        return state;
+  
+    }
+  
+  };
+  
+  const store = Redux.createStore(authReducer);
+  
+  const loginUser = () => {
+    return {
+      type: LOGIN
+    }
+  };
+  
+  const logoutUser = () => {
+    return {
+      type: LOGOUT
+    }
+  };
+}
+/* Use const for Action Types */
+
+/* Register a Store Listener */
+const ADD = 'ADD';
+
+const reducer = (state = 0, action) => {
+  switch(action.type) {
+    case ADD:
+      return state + 1;
+    default:
+      return state;
+  }
+};
+
+const store = Redux.createStore(reducer);
+
+// Global count variable:
+let count = 0;
+
+// Change code below this line
+
+// Change code above this line
+
+store.dispatch({type: ADD});
+console.log(count);
+store.dispatch({type: ADD});
+console.log(count);
+store.dispatch({type: ADD});
+console.log(count);
+/* Register a Store Listener */
+
